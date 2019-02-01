@@ -11,12 +11,11 @@ public class ArrayMerge{
 		int newArraySize = 0;
 
 		for(int i = 0; i < first.length; i++){
-			newArray[i] = first[i];
-			newArraySize++;
+			newArray[newArraySize++] = first[i];
 		}
 
-		for(int j = 0; j < second.length; j++){
-			newArray[newArraySize++] = second[j];
+		for(int i = 0; i < second.length; i++){
+			newArray[newArraySize++] = second[i];
 		}
 
 		return newArray;
@@ -26,9 +25,30 @@ public class ArrayMerge{
 		
 		//YOUR CODE GOES HERE
 
-		System.out.println(Arrays.toString (array));
+	/*	System.out.println(Arrays.toString (array));
+		Method prefered by me, but apparently not acceptable...
+
+		So here is a far more inelegant solution (that took a lot longer to figure out)
+	*/  	
+		System.out.println();
+		System.out.print("[");
+
+		for(int i = 0; i < (array.length - 1); i++){
+			System.out.print(array[i]);
+			System.out.print(", ");
+
+		}
 		
+		if((array.length - 1) < 0){
+			System.out.println("]");			
+		}
+		
+		else{
+			System.out.println(array[array.length - 1] + "]");
+
+		}
 	}
+
 	public static void main(String[] args){
 
 		int[] firstArray;
