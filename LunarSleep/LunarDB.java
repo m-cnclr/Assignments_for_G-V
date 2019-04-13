@@ -710,7 +710,6 @@ public final class LunarDB{
 			"Last Quarter","47835","47841",
 			"New Moon","47841","47848"};
 			
-
 		createPhases(lunarArray);
 	}
 
@@ -753,126 +752,65 @@ public final class LunarDB{
 
 		}
 
-		public Boolean isFQ(int date){
-			for(int i = 0; i < fq.length; i = i +2){
-				if((fq[i] < date) && (date <= fq[i + 1])){
-					return true;
-				}
+	public Boolean isFQ(int date){
+		for(int i = 0; i < fq.length; i = i +2){
+			if((fq[i] < date) && (date <= fq[i + 1])){
+				return true;
 			}
-
-			return false;
 		}
 
-		public Boolean isFullMoon(int date){
-			for(int i = 0; i < fullMoon.length; i = i +2){
-				if((fullMoon[i] < date) && (date <= fullMoon[i + 1])){
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		public Boolean isLQ(int date){
-			for(int i = 0; i < lq.length; i = i +2){
-				if((lq[i] < date) && (date <= lq[i + 1])){
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		public Boolean isNewMoon(int date){
-			for(int i = 0; i < newMoon.length; i = i +2){
-				if((newMoon[i] < date) && (date <= newMoon[i + 1])){
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		public String[] getLunarArray(){
-			return lunarArray;
-		}
-
-		public int[] getNewMoon(){
-			return newMoon;
-		}
-
-		public int[] getFQ(){
-			return fq;
-		}
-
-		public int[] getFullMoon(){
-			return fullMoon;
-		}
-
-		public int[] getLQ(){
-			return lq;
-		}
-
-	public static void main(String[] args){ 
-
-		String[] lunarArray = new String[]{
-			"First Quarter","42799","42805",
-			"Full Moon","42806","42813",
-			"Last Quarter","42814","42821",
-			"New Moon","42822","42827",
-			"First Quarter","42828","42835",
-			"Full Moon","42836","42843",
-			"Last Quarter","42844","42850",
-			"New Moon","42851","42857",
-			"First Quarter","42858","42864",
-			"Full Moon","42865","42873",
-			"Last Quarter","42874","42879",
-			"New Moon","42880","42886",
-			"First Quarter","42887","42894",
-			"Full Moon","42895","42902",
-			"Last Quarter","42903","42909",
-			"New Moon","42910","42916",
-			"First Quarter","42917","42924",
-			"Full Moon","42925","42931",
-			"Last Quarter","42932","42938",
-			"New Moon","42939","42945",
-			"First Quarter","42946","42953",
-			"Full Moon","42954","42961",
-			"Last Quarter","42962","42967",
-			"New Moon","42968","42975",
-			"First Quarter","42976","42983",
-			"Full Moon","42984","42990",
-			"Last Quarter","42991","42997",
-			"New Moon","42998","43005",
-			"First Quarter","43006","43012",
-			"Full Moon","43013","43019",
-			"Last Quarter","43020","43026",
-			"New Moon","43027","43034",
-			"First Quarter","43035","43042",
-			"Full Moon","43043","43048",
-			"Last Quarter","43049","43056",
-			"New Moon","43057","43064",
-			"First Quarter","43065","43071",
-			"Full Moon","43072","43078",
-			"Last Quarter","43079","43086",
-			"New Moon","43087","43094",
-			"First Quarter","43095","43101",
-			"Full Moon","43102","43107",
-			"Last Quarter","43108","43116",
-			"New Moon","43117","43123",
-			"First Quarter","43124","43130",
-			"Full Moon","43131","43137",
-			"Last Quarter","43138","43145",
-			"New Moon","43146","43145"
-			};
-
-			System.out.println(lunarArray.length);
-
-			LunarDB d = new LunarDB();
-			//d.createPhases(lunarArray);
-
-
-		}
-
+		return false;
 	}
+
+	public Boolean isFullMoon(int date){
+		for(int i = 0; i < fullMoon.length; i = i +2){
+			if((fullMoon[i] < date) && (date <= fullMoon[i + 1])){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public Boolean isLQ(int date){
+		for(int i = 0; i < lq.length; i = i +2){
+			if((lq[i] < date) && (date <= lq[i + 1])){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public Boolean isNewMoon(int date){
+		for(int i = 0; i < newMoon.length; i = i +2){
+			if((newMoon[i] < date) && (date <= newMoon[i + 1])){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public String[] getLunarArray(){
+		return lunarArray;
+	}
+
+	public int[] getNewMoon(){
+		return newMoon;
+	}
+
+	public int[] getFQ(){
+		return fq;
+	}
+
+	public int[] getFullMoon(){
+		return fullMoon;
+	}
+
+	public int[] getLQ(){
+		return lq;
+	}
+
+}
 	
