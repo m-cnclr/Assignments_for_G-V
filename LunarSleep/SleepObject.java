@@ -2,6 +2,10 @@ import java.util.Arrays;
 
 public class SleepObject{
 
+
+//This is the parent object.  It holds the databases (children are calculators), and prints
+//them out.  Information is accessed through getters.
+
 	protected int sleepCycles = 4;
 	protected DataToKeep db;
 	protected double[] fq, fullMoon, lq, newMoon;
@@ -22,14 +26,13 @@ public class SleepObject{
 		System.out.println();
 		System.out.println("Your " + qualifier + " sleep cycles for the first quarter are:");
 		System.out.println(Arrays.toString(fq));
-		System.out.println("Your" + qualifier + " sleep cycles for the full moon are:");
+		System.out.println("Your " + qualifier + " sleep cycles for the full moon are:");
 		System.out.println(Arrays.toString(fullMoon));
 		System.out.println("Your " + qualifier + " sleep cycles for the last quarter are:");
 		System.out.println(Arrays.toString(lq));
 		System.out.println("Your " + qualifier + " sleep cycles for the new moon are:");
 		System.out.println(Arrays.toString(newMoon));
 		System.out.println();
-
 	}
 
 	public double[] getFQ(){
@@ -44,5 +47,7 @@ public class SleepObject{
 	public double[] getNewMoon(){
 		return newMoon;
 	}
-
+	public String getQualifier(){
+		return qualifier;
+	}
 }

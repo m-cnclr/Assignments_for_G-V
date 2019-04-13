@@ -4,13 +4,17 @@ import java.lang.Math;
 public class SleepDifference{
 	
 	//will read in the sleep patterns per page from DataToKeep.
+	//this class compares the sleep cycles as they transition between
+	//moon phases.  It the finds the largest difference in sleep and 
+	//prints out the maximum sleep cycles for the moon phase.
 
 	private int sleepCycles = 4;
 	private double[] fq2fullMoon, fullMoon2lq, lq2newMoon, newMoon2fq;
 	private SleepObject so;
 	private double[] maxValue = {0,0,0,0};
 	private String[] inPhase = {"","","",""};
-	private double maxDiffPhase;
+	private boolean printFlag = false; //this ensures the code will only print the results once
+	private String qualifier; //tells the code which calculation method is being used.
 
 	public SleepDifference(SleepObject so){
 
@@ -19,6 +23,7 @@ public class SleepDifference{
 		fullMoon2lq = new double[sleepCycles];
 		lq2newMoon = new double[sleepCycles];
 		newMoon2fq = new double[sleepCycles];
+		qualifier = so.getQualifier();
 		differenceBetwnPhase();
 		compareTo();
 
@@ -57,54 +62,41 @@ public class SleepDifference{
 		for(int i = 0; i < sleepCycles; i++){
 			if(Math.abs(fq2fullMoon[i]) > Math.abs(maxValue[i])){
 				maxValue[i] = fq2fullMoon[i];
-				inPhase[i] = " between the first quarter and the full moon.";
+				inPhase[i] = " between the first quarter and the full moon using ";
 			}
 			if(Math.abs(fullMoon2lq[i]) >  Math.abs(maxValue[i])){
 				maxValue[i]= fullMoon2lq[i];
-				inPhase[i] = " between the full moon and the last quarter.";
+				inPhase[i] = " between the full moon and the last quarter using ";
 			}
 			if(Math.abs(lq2newMoon[i]) >  Math.abs(maxValue[i])){
 				maxValue[i] = lq2newMoon[i];
-				inPhase[i] = " between the last quarter and the new moon.";
+				inPhase[i] = " between the last quarter and the new moon using ";
 			}
 			if(Math.abs(newMoon2fq[i]) >  Math.abs(maxValue[i])){
 				maxValue[i] = newMoon2fq[i];
-				inPhase[i] = " between the new moon and the first quarter.";
+				inPhase[i] = " between the new moon and the first quarter using ";
 			}
 
 		}
-
-		maxDiffPhase = 0;
-		for(int i = 0; i < sleepCycles; i++){
-
-			if(Math.abs(maxValue[i]) > maxDiffPhase){
-				maxDiffPhase = maxValue[i];
-			}
-
-		}
-
+	
 	}
 
-	public void printResults(){
+		public void printResults(){
 
-		System.out.println("The differences in sleep patterns between the first quarter" +
-							" and full moon are:");
-		System.out.println(Arrays.toString(fq2fullMoon));
-		System.out.println("The differences in sleep patterns between the full moon" +
-							" and last quarter are:");
-		System.out.println(Arrays.toString(fullMoon2lq));
-		System.out.println("The differences in sleep patterns between the last quarter" +
-							" and full moon are:");
-		System.out.println(Arrays.toString(lq2newMoon));
-		System.out.println("The differences in sleep patterns between the new moon" +
-							" and first quarter are:");
-		System.out.println(Arrays.toString(newMoon2fq));
-		System.out.println();
 
-		for(int i = 0; i < sleepCycles; i++){
-			System.out.println(maxValue[i] + inPhase[i]);
-
-		}
+			System.out.println("The differences in sleep patterns between the first quarter" +
+								" and full moon are:");
+			System.out.println(Arrays.toString(fq2fullMoon));
+			System.out.println("The differences in sleep patterns between the full moon" +
+								" and last quarter are:");
+			System.out.println(Arrays.toString(fullMoon2lq));
+			System.out.println("The differences in sleep patterns between the last quarter" +
+								" and full moon are:");
+			System.out.println(Arrays.toString(lq2newMoon));
+			System.out.println("The differences in sleep patterns between the new moon" +
+								" and first quarter are:");
+			System.out.println(Arrays.toString(newMoon2fq));
+			System.out.println();
 
 	}
 
@@ -126,8 +118,14 @@ public class SleepDifference{
 	public String[] getInPhase(){
 		return inPhase;
 	}
-	public double getMaxDiffPhase(){
-		return maxDiffPhase;
+	public void setPrintFlag(){
+		printFlag = true;
+	}
+	public boolean getPrintFlag(){
+		return printFlag;
+	}
+	public String getQualifier(){
+		return qualifier;
 	}
 
 }

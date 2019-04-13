@@ -1,17 +1,17 @@
 import java.util.Arrays;
 
+//this object is the child of the Sleep Object and calculates the average values 
+//of each sleep cycle.  It saves four arrays of sleep cycles per phase in the
+//parent SleepObject, and uses a qualifier to let me know which of the calcuation
+//methods is used to create a specfic Sleep Object.
 
-//This class creates an object that returns four double arrays related to
-//the change the average %Deep, %Wake, %Light, %REM
+//all Sleep Objects start with "so"
 
 public class SleepAverage extends SleepObject{
-
-	private double[] percentAverages;
 
 	public SleepAverage(DataToKeep db){
 		super(db);
 		qualifier = "average";
-     	percentAverages = new double[sleepCycles];
 		convertToAverage();
 	}
 

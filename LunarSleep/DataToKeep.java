@@ -2,8 +2,17 @@ import java.util.Arrays;
 
 public class DataToKeep{
 	
-	//this file will accepts a string of clean data
-	//and creates an array of [Date, Deep, Wake, Light, REM] per moon phase
+	//this file will accepts an array of clean data from the main
+	//and creates an array of [Date, Deep, Wake, Light, REM, Date, Deep ...]
+	//for each moon phase.  
+	//It does this by comparing dates in the fitbit data with date ranges in a
+	//a database of lunar phase data (LunarDB).
+
+	//This creates an object that contains 5 arrays.  The original fitbit data,
+	//and all the date and sleep cycle pairs for each moon phase. 
+
+	//Information is accessed through getters.
+
 
 	private int[] fitbit, fq, fullMoon, lq, newMoon; 
 
@@ -22,6 +31,8 @@ public class DataToKeep{
 		int[] tempLQ = new int[fitbit.length];
 		int[] tempNewMoon = new int[fitbit.length];
 
+		//Since the array length is not known, a temporary array is first created
+		//to capture the fitbit sleep data.
 
 		LunarDB checkAgainst = new LunarDB(); //lunar dates for populating Phase to Sleep Arrays
 
@@ -56,6 +67,8 @@ public class DataToKeep{
 				}
 
 		}	
+
+		// This section resizes the arrays to fit the amount of data.
 
 		fq = new int[j];
 		fullMoon = new int[k];
