@@ -6,10 +6,31 @@ public class LunarSleep{
 	//percent sleep per sleep cycle:  Deep, Wake, Light, and REM.  One array per sleep
 	//phase of: First Quarter, Full Moon, Last Quarter, and New Moon.  
 
+	//Throughout the code, the following variables and configurations are used consistently:
+
+	//Main Sleep Object Arrays are categorized as [date, Deep, Wake, Light, REM] or  
+	//[Deep, Wake, Light, REM].
+
+	/*They are always listed in order of their appearance in the night sky, and named:  
+	    1. fq = first Quarter			3. lq = last quarter array
+	    2. fullMoon = full moon array  		4. newMoon = new Moon Array
+
+	The term cycle will always refer to sleep.
+	The term phase will always refer to the moon.
+
+	Dates have been converted to integers for calculation purposes.*/
+
+
 	static double variationCheck = 10;
 	static boolean meetsVariatonCheck = false;
 
 	public static void main(String[] args){
+
+//		JsonSleepParser parser = new JsonSleepParser();			Ideally this would be 
+//		parser.processSleepDirectory("./sleepdata");			the code used to bring
+//		int[] mySleepArray = parser.getSleepArray();			in data directly from a
+//		parser.printSleepArray(mySleepArray);					json created by 
+ 
 
 		int[] sleepArray = new int[] {
 			42870,31,53,176,33,
@@ -920,7 +941,7 @@ public class LunarSleep{
 			43168,57,84,322,38,
 			43167,70,62,312,45,
 			43166,46,69,346,29,
-			43165,58,65,301,6};*/ //This is a second data source to validate/verify
+			43165,58,65,301,6};*/ 				//This is a second data source to validate/verify
 
 		DataToKeep db = new DataToKeep(sleepArray); 
 	
